@@ -18,6 +18,7 @@ public class PCNetwork : Photon.PunBehaviour
 	{
 		GUI.contentColor = Color.red;
 		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString() + " Room Name: " + "myRoom");
+		GUILayout.Label("Number of Players " + PhotonNetwork.countOfPlayers.ToString());
 
 	}
 

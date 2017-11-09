@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/PCNetworkTest.unity
+- path: Assets/MobileNetworkTest.unity
   isLoaded: 1
   isActive: 1
