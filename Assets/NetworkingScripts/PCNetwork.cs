@@ -18,12 +18,13 @@ public class PCNetwork : Photon.PunBehaviour
 	{
 		GUI.contentColor = Color.red;
 		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString() + " Room Name: " + "myRoom");
+		GUILayout.Label("Number of Players " + PhotonNetwork.countOfPlayers.ToString());
 
 	}
 
 	public override void OnJoinedLobby()
 	{
-		PhotonNetwork.CreateRoom("myRoom");
+		PhotonNetwork.CreateRoom("room1");
 	}
 
 	public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)

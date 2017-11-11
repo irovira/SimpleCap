@@ -9,6 +9,18 @@ public class MobileNetwork : Photon.PunBehaviour
 	}
 	void OnGUI()
 	{
+		if (PhotonNetwork.lobby != null) {
+			GUILayout.Label (PhotonNetwork.lobby.ToString ());
+		} else {
+			GUILayout.Label("we're fuckt");
+		}
+
+		if (PhotonNetwork.room != null) {
+			GUILayout.Label (PhotonNetwork.room.ToString ());
+		} else {
+			GUILayout.Label("pls help me god");
+		}
+
 		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
 	}
 
@@ -17,13 +29,15 @@ public class MobileNetwork : Photon.PunBehaviour
 
 	public override void OnJoinedLobby()
 	{
-		PhotonNetwork.JoinRoom("myRoom");
+		PhotonNetwork.JoinRoom("room1");
 	}
 
 	public override void OnJoinedRoom()
 	{
 		//GetComponent<MobileShooter>().Activate();
-		//GetComponent<GyroController>().ControlledObject = GameObject.FindGameObjectWithTag("ARCamera");
+		//GUILayout.Label (PhotonNetwork.room.ToString () + " Room Name: " + "myRoom");
+		GetComponent<GyroController>().ControlledObject = GameObject.FindGameObjectWithTag("MainCamera");
+
 	}
 
 
