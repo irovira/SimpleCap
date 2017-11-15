@@ -55,7 +55,9 @@ public class GyroController : MonoBehaviour
 	// Your device may require a different conversion
 	private static Quaternion ConvertRotation(Quaternion q)
 	{
-		return new Quaternion(q.x, q.y, -q.z, -q.w);
+		Quaternion quat = new Quaternion (q.x, q.y, -q.z, -q.w);
+		quat = Quaternion.Euler (Vector3.right * 90) * quat;
+		return quat;
 	}
 
 
