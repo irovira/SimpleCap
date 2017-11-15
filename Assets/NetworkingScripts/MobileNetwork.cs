@@ -36,6 +36,7 @@ public class MobileNetwork : Photon.PunBehaviour
 	{
 		//GetComponent<MobileShooter>().Activate();
 		//GUILayout.Label (PhotonNetwork.room.ToString () + " Room Name: " + "myRoom");
+
 		GetComponent<GyroController>().ControlledObject = GameObject.FindGameObjectWithTag("MainCamera");
 
 	}

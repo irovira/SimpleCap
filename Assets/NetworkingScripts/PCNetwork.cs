@@ -35,6 +35,10 @@ public class PCNetwork : Photon.PunBehaviour
 	public override void OnCreatedRoom()
 	{
 		base.OnCreatedRoom();
+		Vector3 parentPos = new Vector3 (0, 3, 0);
+		GameObject cube = (GameObject) PhotonNetwork.Instantiate("testCube", Vector3.zero, Quaternion.identity, 0);
+		GameObject plane = (GameObject) PhotonNetwork.Instantiate("testPlane", Vector3.zero, Quaternion.identity, 0);
+		GameObject parent = (GameObject) PhotonNetwork.Instantiate("testParent", parentPos, Quaternion.identity, 0);
 	}
 
 	static string GenerateRoomName()
