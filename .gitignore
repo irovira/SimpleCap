@@ -1,6 +1,7 @@
 Temp/
 Library/metadata
 <<<<<<< HEAD
+*.meta
 Library/ShaderCache
 Library/shadercompiler-UnityShaderCompiler0.log
 Library/shadercompiler-UnityShaderCompiler1.log
@@ -16,6 +17,7 @@ Assets/Prefabs.meta
 Library/LastBuild.buildreport
 Library/PlayerDataCache/
 Library/metadata/*
+Assets/LowPoly Environment Pack.meta
 =======
 Library/ShaderCache
 >>>>>>> 8be23224642ef798dcf2b9a8ce1b85446bc17071

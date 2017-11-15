@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\NetworkingScripts\FullSceneNetwork.cs" />
      <Compile Include="Assets\NetworkingScripts\GyroController.cs" />
      <Compile Include="Assets\NetworkingScripts\MobileNetwork.cs" />
      <Compile Include="Assets\NetworkingScripts\PCNetwork.cs" />
