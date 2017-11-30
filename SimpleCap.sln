@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCap", "Assembly-CShar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCap", "Assembly-CSharp-Editor.csproj", "{47740E1F-7414-9D3F-2C12-1CADA6A568EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCap", "Assembly-CSharp-Editor-firstpass.csproj", "{7FC0D4AE-9DA7-9E03-959F-774422355741}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{47740E1F-7414-9D3F-2C12-1CADA6A568EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47740E1F-7414-9D3F-2C12-1CADA6A568EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47740E1F-7414-9D3F-2C12-1CADA6A568EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC0D4AE-9DA7-9E03-959F-774422355741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC0D4AE-9DA7-9E03-959F-774422355741}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC0D4AE-9DA7-9E03-959F-774422355741}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC0D4AE-9DA7-9E03-959F-774422355741}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

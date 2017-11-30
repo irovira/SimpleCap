@@ -51,10 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\NetworkingScripts\FullSceneNetwork.cs" />
-     <Compile Include="Assets\NetworkingScripts\GyroController.cs" />
-     <Compile Include="Assets\NetworkingScripts\MobileNetwork.cs" />
-     <Compile Include="Assets\NetworkingScripts\PCNetwork.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />
@@ -125,6 +121,12 @@
      <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
      <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
      <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+     <Compile Include="Assets\Scripts\CameraRecord.cs" />
+     <Compile Include="Assets\Scripts\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\NetworkingScripts\FullSceneNetwork.cs" />
+     <Compile Include="Assets\Scripts\NetworkingScripts\GyroController.cs" />
+     <Compile Include="Assets\Scripts\NetworkingScripts\MobileNetwork.cs" />
+     <Compile Include="Assets\Scripts\NetworkingScripts\PCNetwork.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
