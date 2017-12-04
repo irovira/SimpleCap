@@ -36,23 +36,47 @@ public class CameraRecord : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Record ();
+		Replay ();
 	}
 
+	public void setRecord(){
+		recording = true;
+		replaying = false;
+		GetComponent<GyroController> ().enable ();
+	}
+
+	public void setStop(){
+		recording = false;
+		replaying = false;
+		GetComponent<GyroController> ().enable ();
+	}
+
+	public void setReplay(){
+		recording = false;
+		replaying = true;
+		GetComponent<GyroController> ().disable ();
+	}
 	void Record()
 	{
 		if (!recording)
 			return;
 		vals.Add (new recVals (tf.position, tf.rotation));
 	}
-	void Replay(){
-		if (!replaying)
+	public void Replay(){
+		if (!replaying) {
+			GameObject camObj = GameObject.FindGameObjectWithTag("MainCamera");
+			GyroController gyro = camObj.GetComponent<GyroController> ();
+			if(gyro)
+				gyro.enable ();
 			return;
+		}
+			
 		if (replayFrame >= vals.Count) {
 			replayFrame = 0;
 			replaying = false;
 			//comment this line out to clear the recording and start again
-			vals = new List<recVals>();
+			//vals = new List<recVals>();
 			return;
 		}
 
@@ -60,6 +84,17 @@ public class CameraRecord : MonoBehaviour {
 		tf.rotation = vals [replayFrame].rotation;
 
 		replayFrame++;
+	}
+
+	void Stop(){
+		if (recording)
+			recording = false;
+		if (replaying)
+			replaying = false;
+	}
+
+	List<recVals> getVals(){
+		return vals;
 	}
 
 	void OnGUI() {

@@ -88,6 +88,22 @@ public class GyroController : MonoBehaviour
 		qRefGyro = ConvertRotation(Input.gyro.attitude);
 	}
 
+	public void disable(){
+		if (ControlledObject) {
+			ControlledObject = null;
+		}
+		Paused = true;
+		gyro.enabled = false;
+	}
+
+	public void enable(){
+		if (ControlledObject == null) {
+			ControlledObject = GameObject.FindGameObjectWithTag("MainCamera");
+		}
+		Paused = false;
+		gyro.enabled = true;
+		ResetOrientation ();
+	}
 	//// Possible helper function to smooth between gyro and Vuforia
 	//public void UpdateOrientation(float deltatime)
 	//{
