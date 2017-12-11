@@ -56,7 +56,7 @@ public class CameraButtons : MonoBehaviour {
 		GameObject socket = GameObject.FindGameObjectWithTag("Socket");
 		GameObject camObj = GameObject.FindGameObjectWithTag("MainCamera");
 		CameraRecord cam = camObj.GetComponent<CameraRecord> ();
-		List<recVals> val = cam.getVals();
+		//List<recVals> val = cam.getVals();
 
 		//TODO: Vector3 Data is not serializable FIX THIS
 		//string data = cam.getValsString ();
@@ -74,12 +74,12 @@ public class CameraButtons : MonoBehaviour {
 			//fuct.Add (1);
 
 			//pv.RPC ("getData", PhotonTargets.All, fuct);
-			if (val != null) {
-				dataFound = true;
-				//string data = cam.getValsString ();
-				//pv.RPC ("getData", PhotonTargets.All, data);
-				//pv.RPC ("getData", PhotonTargets.All, fuct);
-			}
+//			if (val != null) {
+//				dataFound = true;
+//				//string data = cam.getValsString ();
+//				//pv.RPC ("getData", PhotonTargets.All, data);
+//				//pv.RPC ("getData", PhotonTargets.All, fuct);
+//			}
 		}
 	}
 

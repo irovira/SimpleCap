@@ -108,17 +108,6 @@ public class CameraRecord : Photon.MonoBehaviour {
 	}
 
 	public string getValsString(){
-		//	var o = new MemoryStream(); //Create something to hold the data
-		//
-		//	var bf = new BinaryFormatter(); //Create a formatter
-		//	bf.Serialize(o, list); //Save the list
-		//	var data = Convert.ToBase64String(o.GetBuffer()); //Convert the data to a string
-		//
-		//
-		//	//Reading it back in
-		//	var ins = new MemoryStream(Convert.FromBase64String(data)); //Create an input stream from the string
-		//	//Read back the data
-		//	var x : List.<SomeClass> = bf.Deserialize(ins);
 
 		//testing code from https://forum.unity.com/threads/vector3-is-not-marked-serializable.435303/
 		BinaryFormatter bf = new BinaryFormatter();
@@ -133,6 +122,8 @@ public class CameraRecord : Photon.MonoBehaviour {
 		QuaternionSerializationSurrogate quatSS = new QuaternionSerializationSurrogate();
 
 		surrogateSelector.AddSurrogate(typeof(Quaternion),new StreamingContext(StreamingContextStates.All),quatSS);
+
+		//writing out to buffer based on https://answers.unity.com/questions/318593/using-rpc-to-send-a-list.html
 		bf.SurrogateSelector = surrogateSelector;
 		bf.Serialize (stream, vals);
 		string data = Convert.ToBase64String (stream.GetBuffer ());
