@@ -123,12 +123,17 @@
      <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
      <Compile Include="Assets\Scripts\CameraButtons.cs" />
      <Compile Include="Assets\Scripts\CameraRecord.cs" />
+     <Compile Include="Assets\Scripts\DataSocket.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\NetworkingScripts\FullSceneNetwork.cs" />
      <Compile Include="Assets\Scripts\NetworkingScripts\GyroController.cs" />
      <Compile Include="Assets\Scripts\NetworkingScripts\MobileNetwork.cs" />
      <Compile Include="Assets\Scripts\NetworkingScripts\PCNetwork.cs" />
+     <Compile Include="Assets\Scripts\PCDataSocket.cs" />
+     <Compile Include="Assets\Scripts\QuaternionSerializationSurrogate.cs" />
      <Compile Include="Assets\Scripts\RecordManager.cs" />
+     <Compile Include="Assets\Scripts\SendStringTest.cs" />
+     <Compile Include="Assets\Scripts\Vector3SerializationSurrogate.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
      <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />

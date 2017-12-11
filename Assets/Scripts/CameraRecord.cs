@@ -2,10 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
+using System;
+using System.Text;
+
 [System.Serializable]
 public class recVals
 {
+	[SerializeField]
 	public Vector3 position;
+	[SerializeField]
 	public Quaternion rotation;
 
 	public recVals(Vector3 position, Quaternion rotation)
@@ -15,10 +23,11 @@ public class recVals
 	}
 }
 
-public class CameraRecord : MonoBehaviour {
+public class CameraRecord : Photon.MonoBehaviour {
 
 
 	List<recVals> vals = new List<recVals>();
+	MemoryStream stream;
 
 	bool recording = false;
 
@@ -32,6 +41,7 @@ public class CameraRecord : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		tf = this.transform;
+		stream = new MemoryStream ();
 	}
 	
 	// Update is called once per frame
@@ -43,19 +53,19 @@ public class CameraRecord : MonoBehaviour {
 	public void setRecord(){
 		recording = true;
 		replaying = false;
-		GetComponent<GyroController> ().enable ();
+		//GetComponent<GyroController> ().enable ();
 	}
 
 	public void setStop(){
 		recording = false;
 		replaying = false;
-		GetComponent<GyroController> ().enable ();
+		//GetComponent<GyroController> ().enable ();
 	}
 
 	public void setReplay(){
 		recording = false;
 		replaying = true;
-		GetComponent<GyroController> ().disable ();
+		//GetComponent<GyroController> ().disable ();
 	}
 	void Record()
 	{
@@ -66,9 +76,9 @@ public class CameraRecord : MonoBehaviour {
 	public void Replay(){
 		if (!replaying) {
 			GameObject camObj = GameObject.FindGameObjectWithTag("MainCamera");
-			GyroController gyro = camObj.GetComponent<GyroController> ();
-			if(gyro)
-				gyro.enable ();
+			//GyroController gyro = camObj.GetComponent<GyroController> ();
+//			if(gyro)
+//				gyro.enable ();
 			return;
 		}
 			
@@ -93,9 +103,45 @@ public class CameraRecord : MonoBehaviour {
 			replaying = false;
 	}
 
-	List<recVals> getVals(){
+	public List<recVals> getVals(){
 		return vals;
 	}
+
+	public string getValsString(){
+		//	var o = new MemoryStream(); //Create something to hold the data
+		//
+		//	var bf = new BinaryFormatter(); //Create a formatter
+		//	bf.Serialize(o, list); //Save the list
+		//	var data = Convert.ToBase64String(o.GetBuffer()); //Convert the data to a string
+		//
+		//
+		//	//Reading it back in
+		//	var ins = new MemoryStream(Convert.FromBase64String(data)); //Create an input stream from the string
+		//	//Read back the data
+		//	var x : List.<SomeClass> = bf.Deserialize(ins);
+
+		//testing code from https://forum.unity.com/threads/vector3-is-not-marked-serializable.435303/
+		BinaryFormatter bf = new BinaryFormatter();
+		SurrogateSelector surrogateSelector = new SurrogateSelector();
+
+		//make sure vector is serializable
+		Vector3SerializationSurrogate vector3SS = new Vector3SerializationSurrogate();
+
+		surrogateSelector.AddSurrogate(typeof(Vector3),new StreamingContext(StreamingContextStates.All),vector3SS);
+
+		//make sure quaternion is serializable
+		QuaternionSerializationSurrogate quatSS = new QuaternionSerializationSurrogate();
+
+		surrogateSelector.AddSurrogate(typeof(Quaternion),new StreamingContext(StreamingContextStates.All),quatSS);
+		bf.SurrogateSelector = surrogateSelector;
+		bf.Serialize (stream, vals);
+		string data = Convert.ToBase64String (stream.GetBuffer ());
+		return data;
+	}
+
+//	public void sendOutVals(){
+//		photonView.RPC ("getData", PhotonTargets.MasterClient, vals);
+//	}
 
 	void OnGUI() {
 
@@ -109,5 +155,22 @@ public class CameraRecord : MonoBehaviour {
 				replaying = !replaying;
 		}
 
+	}
+
+
+
+
+
+
+	public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+	{
+//		Debug.Log ("Serializing");
+//		if (stream.isWriting) {
+//			stream.SendNext (2);
+//			Debug.Log ("writing to server");
+//		} else {
+//			Debug.Log ("reading from server");
+//			int x = (int)stream.ReceiveNext ();
+//		}
 	}
 }

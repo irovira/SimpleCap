@@ -37,6 +37,8 @@ public class FullSceneNetwork : Photon.PunBehaviour
 		base.OnCreatedRoom();
 		//Vector3 parentPos = new Vector3 (0, 3, 0);
 		GameObject environment = (GameObject) PhotonNetwork.Instantiate("Environment", Vector3.zero, Quaternion.identity, 0);
+		Vector3 pos = new Vector3 (0.0f, 25.0f, 0.0f);
+		GameObject cube = (GameObject) PhotonNetwork.Instantiate("Cube",pos , Quaternion.identity, 0);
 	}
 
 	static string GenerateRoomName()

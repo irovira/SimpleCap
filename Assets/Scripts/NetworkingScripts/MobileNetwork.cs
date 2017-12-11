@@ -12,13 +12,13 @@ public class MobileNetwork : Photon.PunBehaviour
 		if (PhotonNetwork.lobby != null) {
 			GUILayout.Label (PhotonNetwork.lobby.ToString ());
 		} else {
-			GUILayout.Label("we're fuckt");
+			
 		}
 
 		if (PhotonNetwork.room != null) {
 			GUILayout.Label (PhotonNetwork.room.ToString ());
 		} else {
-			GUILayout.Label("pls help me god");
+			
 		}
 
 		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
@@ -38,8 +38,8 @@ public class MobileNetwork : Photon.PunBehaviour
 		//GUILayout.Label (PhotonNetwork.room.ToString () + " Room Name: " + "myRoom");
 
 		GetComponent<GyroController>().ControlledObject = GameObject.FindGameObjectWithTag("MainCamera");
-		GameObject cameraModel = (GameObject) PhotonNetwork.Instantiate("CameraModel",GetComponent<GyroController>().ControlledObject.transform.position, 
-			GetComponent<GyroController>().ControlledObject.transform.rotation, 0);
+//		GameObject cameraModel = (GameObject) PhotonNetwork.Instantiate("CameraModel",GetComponent<GyroController>().ControlledObject.transform.position, 
+//			GetComponent<GyroController>().ControlledObject.transform.rotation, 0);
 
 	}
 
